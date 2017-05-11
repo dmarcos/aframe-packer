@@ -1,0 +1,20 @@
+{
+  "name": "aframe-packer",
+  "version": "0.0.3",
+  "description": "Pack and distribute A-Frame apps",
+  "repository": "dmarcos/aframe-packer",
+  "bin": "./bin/cli.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./bin/cli.js",
+    "qbrt": "qbrt"
+  },
+  "dependencies": {
+    "cli": "^1.0.1",
+    "command-line-commands": "^2.0.0",
+    "command-line-usage": "^4.0.0",
+    "fs-extra": "^3.0.0",
+    "get-installed-path": "2.0.3",
+    "qbrt": "^0.1.3"
+  }
+}
