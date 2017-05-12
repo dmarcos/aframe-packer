@@ -2,7 +2,7 @@
 
 'use strict';
 
-const exec = require('child_process').exec;
+const execFile = require('child_process').execFile;
 const path = require('path');
 const modulePath = path.dirname(__filename);
 const os = require('os');
@@ -40,11 +40,11 @@ fs.mkdtemp(os.tmpdir(), (err, dir) => {
   fs.writeJsonSync(dir + '/package.json', {"main": "./main.js"}, {flags: 'w'});
   checkPreferences();
   command = command === 'pack' ? 'package' : command;
-  const child = exec('"' + modulePath + '\\..\\node_modules\\.bin\\qbrt" ' + command + ' ' + dir,
+  const child = execFile(path.join(modulePath, '..', 'node_modules', '.bin', 'qbrt.cmd'), [command, dir], {},
     (error, stdout, stderr) => {
         console.log(`stdout: ${stdout}`);
         console.log(`stderr: ${stderr}`);
-        if (error !== null) { console.log(`exec error: ${error}`); }
+        if (error !== null) { console.log(`execFile error: ${error}`); }
     });
 });
 
