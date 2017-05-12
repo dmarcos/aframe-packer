@@ -4,14 +4,16 @@ A-Frame packer is a command line tool that lets you bundle an [A-Frame](https://
 
 It's based on [qbrt](https://github.com/mykmelez/qbrt) with a little bit of magic sprinkled on top.
 
+<div align="center">
+  <a href="#how-to-use">How To Use</a>
+  &mdash;
+  <a href="#authors">Authors</a>
+  &mdash;
+</div>
+
 ---
 
-- [How to use](#how-to-use)
-- [Authors](#authors)
-
 ## How to use
-
-### Setup
 
 Install it:
 
