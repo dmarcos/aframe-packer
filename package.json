@@ -1,6 +1,6 @@
 {
   "name": "aframe-packer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Pack and distribute A-Frame apps",
   "repository": "dmarcos/aframe-packer",
   "bin": "./bin/cli.js",
