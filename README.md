@@ -27,10 +27,10 @@ Before packing you can test that everything works by invoking *run* on your app 
 aframe-packer run aframe_app_dir
 ```
 
-Once you're happy with the result you can create a zip file that both contains your A-Frame app and Web runtime ready for distribution. To run it you need to invoke
+Once you're happy with the result you can create a zip file that both contains your A-Frame app and Web runtime ready for distribution. To launch it you have to run the `aframe_app_dir.bat` file in the bundle
 
 ```bash
-aframe-packer pack aframe_app_dir
+aframe-packer pack path/to/aframe_app_dir
 ```
 
 ## Authors
