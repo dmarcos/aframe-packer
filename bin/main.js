@@ -17,12 +17,15 @@
 const { classes: Cc, interfaces: Ci, results: Cr, utils: Cu } = Components;
 const { Runtime } = Cu.import('resource://qbrt/modules/Runtime.jsm', {});
 const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+const screenManager = Cc["@mozilla.org/gfx/screenmanager;1"].getService(Ci.nsIScreenManager);
+const left = {}, top = {}, width = {}, height = {};
+screenManager.primaryScreen.GetRectDisplayPix(left, top, width, height);
 
 const WINDOW_FEATURES = [
-  'width=640',
-  'height=480',
-  'resizable',
-  'scrollbars',
+  'top=0',
+  'left=0',
+  'width=' + 500,
+  'height=' + 600,
 ].join(',');
 
 Services.ww.openWindow(null, 'chrome://app/content/index.html', '_blank', WINDOW_FEATURES, null);
