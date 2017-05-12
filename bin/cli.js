@@ -31,15 +31,21 @@ const aframeAppPath = parsedCommands.argv[0];
 
 // Make tmp dir
 fs.mkdtemp(os.tmpdir(), (err, dir) => {
+  const packageName = path.basename(fs.realpathSync(aframeAppPath));
   if (err) { throw err; }
   console.log('Created Temp Directory:', dir);
   console.log('Copying A-Frame application:', aframeAppPath);
   fs.copySync(aframeAppPath, dir, {filter: filterNodeModules});
   fs.copySync(modulePath + '/main.js', dir + '/main.js');
   fs.ensureFileSync(dir + '/package.json');
-  fs.writeJsonSync(dir + '/package.json', {"main": "./main.js"}, {flags: 'w'});
+  fs.writeJsonSync(dir + '/package.json', {"main": "./main.js", "name" : packageName}, {flags: 'w'});
   checkPreferences();
   command = command === 'pack' ? 'package' : command;
+  if (command === 'package') {
+    console.log('Creating Package: ' + packageName);
+  } else {
+    console.log('Runnnig Application: ' + packageName);
+  }
   const child = execFile(path.join(modulePath, '..', 'node_modules', '.bin', 'qbrt.cmd'), [command, dir], {},
     (error, stdout, stderr) => {
         console.log(`stdout: ${stdout}`);
