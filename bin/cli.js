@@ -46,7 +46,8 @@ fs.mkdtemp(os.tmpdir(), (err, dir) => {
   } else {
     console.log('Runnnig Application: ' + packageName);
   }
-  const child = execFile(path.join(modulePath, '..', 'node_modules', '.bin', 'qbrt.cmd'), [command, dir], {},
+  const exeFileName = process.platform === 'win32' ? 'qbrt.cmd' : 'qbrt';
+  const child = execFile(path.join(modulePath, '..', 'node_modules', '.bin', exeFileName), [command, dir], {},
     (error, stdout, stderr) => {
         console.log(`stdout: ${stdout}`);
         console.log(`stderr: ${stderr}`);
